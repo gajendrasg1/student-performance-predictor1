@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Performance Predictor</h1>
+
+    <p>Enter student details to predict the final score.</p>
+
+    <form action="/predict" method="POST">
+
+        <label>Study Hours</label>
+        <input
+            type="number"
+            name="study_hours"
+            step="0.1"
+            required
+        >
+
+        <label>Attendance (%)</label>
+        <input
+            type="number"
+            name="attendance"
+            required
+        >
+
+        <label>Previous Marks</label>
+        <input
+            type="number"
+            name="previous_marks"
+            required
+        >
+
+        <label>Assignment Score</label>
+        <input
+            type="number"
+            name="assignment_score"
+            required
+        >
+
+        <button type="submit">Predict Score</button>
+
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            Predicted Final Score: {{ prediction }}
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
